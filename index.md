@@ -1,295 +1,325 @@
-<!--
- * @Author: YangHeng66 yangheng66@gmail.com
- * @Date: 2025-03-07 10:37:33
- * @LastEditors: YangHeng66 yangheng66@gmail.com
- * @LastEditTime: 2025-03-07 10:58:58
- * @FilePath: \Vitepress_code\index.md
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
--->
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useData } from 'vitepress'
 
----
+const { theme } = useData()
+const categories = ref([
+  { text: '前端开发', count: 12, link: '/frontend/', icon: '🌐' },
+  { text: '后端开发', count: 8, link: '/backend/', icon: '⚙️' },
+  { text: '开发工具', count: 6, link: '/tools/', icon: '🔧' },
+  { text: '学习指南', count: 4, link: '/guide/', icon: '📖' }
+])
 
-# https://vitepress.dev/reference/default-theme-home-page
+const learningPaths = ref([
+  {
+    title: '前端开发路径',
+    steps: [
+      'HTML & CSS基础',
+      'JavaScript核心概念',
+      '前端框架（Vue/React）',
+      '工程化与性能优化'
+    ],
+    link: '/frontend/'
+  },
+  {
+    title: '后端开发路径',
+    steps: [
+      '编程语言基础',
+      '数据库与存储',
+      'API设计与开发',
+      '服务架构与部署'
+    ],
+    link: '/backend/'
+  },
+  {
+    title: '全栈开发路径',
+    steps: [
+      '前端基础知识',
+      '后端开发入门',
+      '数据库与API',
+      '全栈项目实战'
+    ],
+    link: '/guide/getting-started'
+  }
+])
+</script>
 
-layout: home
+<div class="sky-blue-container">
+  <!-- 简洁介绍区域 -->
+  <div class="intro-section">
+    <h2>系统化学习编程技术</h2>
+    <p>这是一个专注于编程技术学习与分享的平台，帮助开发者构建完整的技术体系，从入门到精通。</p>
+  </div>
 
-hero:
-name: "编程技术宝典"
-text: "系统化的编程学习平台"
-tagline: 从零基础到高级工程师的完整技术成长路径
-image:
-src: /hero.png
-alt: 编程技术文档
-actions: - theme: brand
-text: 开始学习
-link: /guide/ - theme: alt
-text: 查看示例
-link: /frontend/html-css - theme: alt
-text: GitHub
-link: https://github.com/your-username/your-repo
-
-features:
-
-- icon: 📚
-  title: 体系化学习
-  details: 按照科学的学习路径，构建完整的知识体系，避免碎片化学习带来的困扰
-  link: /guide/getting-started
-  linkText: 学习路径
-- icon: 🚀
-  title: 实战驱动
-  details: 每个知识点配有实战项目，理论结合实践，巩固所学知识，提升解决问题的能力
-  link: /guide/
-  linkText: 浏览项目
-- icon: 🔍
-  title: 深入浅出
-  details: 复杂概念简单化，抽象问题具体化，通过生动的比喻和清晰的图解轻松掌握技术要点
-  link: /frontend/javascript
-  linkText: 查看示例
-- icon: ⚡️
-  title: 最佳实践
-  details: 汇集行业一线开发经验和编码规范，让你的代码更专业，更易维护，更具扩展性
-  link: /tools/
-  linkText: 了解更多
-- icon: 🌐
-  title: 全栈覆盖
-  details: 前端、后端、移动端、DevOps、云原生等全技术栈内容，满足不同阶段的学习需求
-  link: /backend/
-  linkText: 探索领域
-- icon: 🤝
-  title: 社区互动
-  details: 加入活跃的技术社区，与其他开发者交流经验，解决疑难问题，共同成长
-  link: /about
-  linkText: 加入我们
-
-head:
-
-- - meta
-  - name: keywords
-    content: 编程, 开发, 学习, 教程, 前端, 后端, JavaScript, Python, 技术文档
-- - meta
-  - name: description
-    content: 系统化的编程技术学习平台，从零基础到高级工程师的完整技术成长路径
-
----
-
-<div class="custom-home-section">
-  <div class="container">
-    <div class="title">为什么选择我们的技术文档？</div>
-    <div class="description">
-      在信息爆炸的时代，高质量的学习资源尤为珍贵。我们的技术文档由一线开发者精心打造，注重实用性和系统性，帮助你在技术成长道路上事半功倍。
-    </div>
-    <div class="features-grid">
-      <div class="feature-item">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-title">目标明确</div>
-        <div class="feature-desc">清晰的学习目标和路径规划</div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🔄</div>
-        <div class="feature-title">持续更新</div>
-        <div class="feature-desc">紧跟技术发展，定期更新内容</div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">📱</div>
-        <div class="feature-title">响应式设计</div>
-        <div class="feature-desc">在任何设备上都能获得良好体验</div>
-      </div>
-      <div class="feature-item">
-        <div class="feature-icon">🌙</div>
-        <div class="feature-title">暗黑模式</div>
-        <div class="feature-desc">保护你的眼睛，提供舒适的阅读体验</div>
-      </div>
+  <!-- 分类导航区域 -->
+  <div class="categories-section">
+    <div class="category-grid">
+      <a v-for="category in categories" :key="category.text" :href="category.link" class="category-card">
+        <div class="category-icon">{{ category.icon }}</div>
+        <h3 class="category-title">{{ category.text }}</h3>
+        <span class="category-count">{{ category.count }}篇文章</span>
+      </a>
     </div>
   </div>
-</div>
 
-<div class="custom-home-section alt">
-  <div class="container">
-    <div class="title">学习路径推荐</div>
-    <div class="description">
-      根据你的目标和兴趣，选择适合你的学习路径，系统化提升你的技术能力。
-    </div>
-    <div class="path-cards">
-      <div class="path-card">
-        <div class="path-title">前端开发工程师</div>
+  <!-- 学习路径区域 -->
+  <div class="learning-paths-section">
+    <h2>学习路径推荐</h2>
+    <div class="path-grid">
+      <div v-for="path in learningPaths" :key="path.title" class="path-card">
+        <h3 class="path-title">{{ path.title }}</h3>
         <div class="path-steps">
-          <div class="step">1. HTML & CSS基础</div>
-          <div class="step">2. JavaScript核心概念</div>
-          <div class="step">3. 前端框架（Vue/React）</div>
-          <div class="step">4. 工程化与性能优化</div>
+          <div v-for="(step, index) in path.steps" :key="index" class="path-step">
+            <span class="step-number">{{ index + 1 }}</span>
+            <span class="step-text">{{ step }}</span>
+          </div>
         </div>
-        <a class="path-link" href="/frontend/">开始学习 →</a>
-      </div>
-      <div class="path-card">
-        <div class="path-title">后端开发工程师</div>
-        <div class="path-steps">
-          <div class="step">1. 编程语言基础</div>
-          <div class="step">2. 数据库与存储</div>
-          <div class="step">3. API设计与开发</div>
-          <div class="step">4. 服务架构与部署</div>
-        </div>
-        <a class="path-link" href="/backend/">开始学习 →</a>
-      </div>
-      <div class="path-card">
-        <div class="path-title">全栈开发工程师</div>
-        <div class="path-steps">
-          <div class="step">1. 前端基础知识</div>
-          <div class="step">2. 后端开发入门</div>
-          <div class="step">3. 数据库与API</div>
-          <div class="step">4. 全栈项目实战</div>
-        </div>
-        <a class="path-link" href="/guide/getting-started">开始学习 →</a>
+        <a :href="path.link" class="path-link">开始学习</a>
       </div>
     </div>
   </div>
 </div>
 
 <style>
-.custom-home-section {
-  padding: 4rem 0;
-  background-color: var(--vp-c-bg);
+:root {
+  --sky-blue: #3c8dbc;
+  --sky-blue-light: #5bc0de;
+  --sky-blue-lighter: #d9edf7;
+  --sky-blue-dark: #2c6c8e;
+  --sky-blue-darker: #1c4a5f;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --gray: #e9ecef;
+  --text-dark: #343a40;
+  --text-light: #6c757d;
 }
 
-.custom-home-section.alt {
-  background-color: var(--vp-c-bg-soft);
-}
-
-.custom-home-section .container {
-  max-width: 1152px;
+/* 整体容器 */
+.sky-blue-container {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 2rem 1rem;
+  color: var(--text-dark);
 }
 
-.custom-home-section .title {
+/* 简洁介绍区域 */
+.intro-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background-color: var(--sky-blue-lighter);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.intro-section h2 {
   font-size: 2rem;
+  color: var(--sky-blue-dark);
+  margin-bottom: 1rem;
   font-weight: 600;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--vp-c-text-1);
 }
 
-.custom-home-section .description {
+.intro-section p {
   font-size: 1.1rem;
-  text-align: center;
-  max-width: 768px;
-  margin: 0 auto 3rem;
-  color: var(--vp-c-text-2);
   line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-dark);
 }
 
-.features-grid {
+/* 分类导航区域 */
+.categories-section {
+  margin-bottom: 4rem;
+}
+
+.category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
-.feature-item {
-  background-color: var(--vp-c-bg-soft);
-  border-radius: 8px;
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 1.5rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid var(--gray);
 }
 
-.custom-home-section.alt .feature-item {
-  background-color: var(--vp-c-bg);
-}
-
-.feature-item:hover {
+.category-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 15px rgba(60, 141, 188, 0.15);
+  border-color: var(--sky-blue-light);
 }
 
-.feature-icon {
-  font-size: 2rem;
+.category-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.feature-title {
+.category-title {
   font-size: 1.2rem;
   font-weight: 600;
+  color: var(--sky-blue-dark);
   margin-bottom: 0.5rem;
-  color: var(--vp-c-text-1);
+  text-align: center;
 }
 
-.feature-desc {
+.category-count {
   font-size: 0.9rem;
-  color: var(--vp-c-text-2);
+  color: var(--text-light);
 }
 
-.path-cards {
+/* 学习路径区域 */
+.learning-paths-section {
+  margin-bottom: 3rem;
+}
+
+.learning-paths-section h2 {
+  font-size: 1.8rem;
+  color: var(--sky-blue-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.path-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .path-card {
-  background-color: var(--vp-c-bg);
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s;
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--gray);
+  transition: all 0.3s ease;
 }
 
 .path-card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(60, 141, 188, 0.15);
+  border-color: var(--sky-blue-light);
 }
 
 .path-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--vp-c-brand);
+  color: var(--sky-blue-dark);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--sky-blue-lighter);
 }
 
 .path-steps {
   margin-bottom: 1.5rem;
 }
 
-.step {
-  padding: 0.5rem 0;
-  border-bottom: 1px dashed var(--vp-c-divider);
-  color: var(--vp-c-text-2);
+.path-step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
 }
 
-.step:last-child {
-  border-bottom: none;
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--sky-blue);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+}
+
+.step-text {
+  font-size: 1rem;
+  color: var(--text-dark);
 }
 
 .path-link {
   display: inline-block;
-  margin-top: 1rem;
-  color: var(--vp-c-brand);
-  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--sky-blue);
+  color: white;
+  border-radius: 5px;
   text-decoration: none;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
 .path-link:hover {
-  color: var(--vp-c-brand-dark);
+  background-color: var(--sky-blue-dark);
 }
 
+/* 响应式调整 */
 @media (max-width: 768px) {
-  .custom-home-section {
-    padding: 3rem 0;
+  .category-grid,
+  .path-grid {
+    grid-template-columns: 1fr;
   }
   
-  .custom-home-section .title {
-    font-size: 1.8rem;
+  .intro-section h2 {
+    font-size: 1.6rem;
   }
   
-  .custom-home-section .description {
+  .intro-section p {
     font-size: 1rem;
   }
   
-  .features-grid {
-    grid-template-columns: 1fr;
+  .learning-paths-section h2 {
+    font-size: 1.5rem;
   }
-  
-  .path-cards {
-    grid-template-columns: 1fr;
-  }
+}
+
+/* 覆盖VitePress默认样式 */
+:root {
+  --vp-c-brand: var(--sky-blue);
+  --vp-c-brand-light: var(--sky-blue-light);
+  --vp-c-brand-lighter: var(--sky-blue-lighter);
+  --vp-c-brand-dark: var(--sky-blue-dark);
+  --vp-c-brand-darker: var(--sky-blue-darker);
+  --vp-button-brand-bg: var(--sky-blue);
+  --vp-button-brand-hover-bg: var(--sky-blue-dark);
+}
+
+.VPHero .name,
+.VPHero .text {
+  color: var(--sky-blue-dark) !important;
+}
+
+.VPHero .tagline {
+  color: var(--text-light) !important;
+}
+
+.VPFeature {
+  border: 1px solid var(--gray);
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(60, 141, 188, 0.15) !important;
+  border-color: var(--sky-blue-light);
+}
+
+.VPFeature .title {
+  color: var(--sky-blue-dark) !important;
+}
+
+.VPFeature .details {
+  color: var(--text-dark) !important;
 }
 </style>
 

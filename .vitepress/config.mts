@@ -10,13 +10,13 @@ export default defineConfig({
   // 站点级别的设置
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
-    ["meta", { name: "theme-color", content: "#3c8cea" }],
+    ["meta", { name: "theme-color", content: "#3c8dbc" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
       "meta",
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
-    ["meta", { name: "msapplication-TileColor", content: "#3c8cea" }],
+    ["meta", { name: "msapplication-TileColor", content: "#3c8dbc" }],
     [
       "meta",
       {
@@ -24,6 +24,7 @@ export default defineConfig({
         content: "编程,开发,学习,教程,前端,后端,JavaScript,Python,技术文档",
       },
     ],
+    ["link", { rel: "stylesheet", href: "/styles/custom.css" }],
   ],
 
   // 自定义markdown配置
@@ -251,6 +252,15 @@ export default defineConfig({
     editLink: {
       pattern: "https://github.com/your-username/your-repo/edit/main/:path",
       text: "在 GitHub 上编辑此页",
+    },
+
+    // 自定义主题颜色
+    colors: {
+      brand: "#3c8dbc",
+      brandLight: "#5bc0de",
+      brandLighter: "#d9edf7",
+      brandDark: "#2c6c8e",
+      brandDarker: "#1c4a5f",
     },
 
     // 赞助商
